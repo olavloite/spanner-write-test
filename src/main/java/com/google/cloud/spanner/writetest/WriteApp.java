@@ -14,6 +14,7 @@ import com.google.common.collect.ImmutableList;
 import java.util.UUID;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.concurrent.TimeUnit;
+import org.apache.commons.lang3.RandomStringUtils;
 
 public class WriteApp {
 
@@ -55,7 +56,7 @@ public class WriteApp {
             .set("col_numeric").to(Value.pgNumeric(String.valueOf(ThreadLocalRandom.current().nextInt())))
             .set("col_date").to(Date.fromJavaUtilDate(new java.util.Date(ThreadLocalRandom.current().nextInt(1_000_000))))
             .set("col_timestamptz").to(Timestamp.of(new java.util.Date(ThreadLocalRandom.current().nextInt(1_000_000))))
-            .set("col_jsonb").to(String.format("{\"value\":\"%s\"}", UUID.randomUUID().toString()))
+            .set("col_jsonb").to(String.format("{\"value\":\"%s\"}", RandomStringUtils.insecure().next(5000, true, true)))
             .set("col_bool").to(Boolean.FALSE)
             .set("col_varchar").to(UUID.randomUUID().toString())
             .build()));

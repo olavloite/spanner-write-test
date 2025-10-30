@@ -20,6 +20,11 @@
       <artifactId>google-cloud-spanner</artifactId>
       <version>6.102.1</version>
     </dependency>
+    <dependency>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-text</artifactId>
+      <version>1.14.0</version>
+    </dependency>
   </dependencies>
   <build>
     <plugins>
